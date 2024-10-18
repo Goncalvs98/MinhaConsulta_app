@@ -16,13 +16,13 @@ const ConsultationsListScreen = () => {
 
   useEffect(() => {
     // Fetch consultations from the backend
-    axios.get<{ consultations: Consultation[] }>('http://localhost:3000/api/consultations')
-        .then((response) => {
-            setConsultations(response.data.consultations);
-        })
-        .catch((error) => {
-            console.error('Erro ao buscar consultas:', error);
-        });
+    axios.get('http://localhost:3000/api/consultations')
+      .then((response) => {
+        setConsultations(response.data);
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar consultas:', error);
+      });
   }, []);
 
   const renderItem = ({ item }: { item: Consultation }) => (
